@@ -17,8 +17,7 @@ class UniqueCollectionTest {
     @Test
     fun addAnItem() {
         collection.addItem(Item("testUnit1"))
-        val item = collection.get(0)
-        assert(item.name == "testUnit1")
+        assert(collection.get(0).name == "testUnit1")
     }
 
     // TODO 2: Write a test to ensure that only unique items can be added to the collection
@@ -26,9 +25,11 @@ class UniqueCollectionTest {
     @Test
     fun addUniqueItem() {
         collection.addItem(Item("testUnit2"))
+        collection.addItem(Item("testUnit3"))
         collection.addItem(Item("testUnit2"))
-        val size = collection.size()
-        assert(size == 1)
+        collection.addItem(Item("testUnit3"))
+
+        assert(collection.size() == 2)
     }
 
     // Test Driven Development (TDD) test - complete specified function so that this test passes
